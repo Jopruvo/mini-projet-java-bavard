@@ -1,12 +1,16 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class Concierge {
+public class Concierge implements PapotageListener{
     
     List<Bavard> listBavardsConnected = new ArrayList<>();
     List<Bavard> listBavardsDisconnected = new ArrayList<>();
 
     public Concierge(){
+    }
+
+    public void listen(PapotageEvent e){
+
     }
 
     public void createBavard(Bavard b){
@@ -33,5 +37,13 @@ public class Concierge {
         }
     }
 
-    
+    public void selfNotify(PapotageEvent e){
+        this.listen(e);
+        }
+
+    public void notify(PapotageEvent e){
+        for(PapotageListener l : this.listBavardsConnected){
+            l.listen(e);
+        }
+    }
 }
