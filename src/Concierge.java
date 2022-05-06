@@ -3,10 +3,16 @@ import java.util.ArrayList;
 
 public class Concierge implements PapotageListener{
     
-    List<Bavard> listBavardsConnected = new ArrayList<>();
-    List<Bavard> listBavardsDisconnected = new ArrayList<>();
+    private int id = 0;
+    private List<Bavard> listBavardsConnected = new ArrayList<>();
+    private List<Bavard> listBavardsDisconnected = new ArrayList<>();
 
-    public Concierge(){
+    public Concierge(int id){
+        this.id = id;
+    }
+
+    public int getID(){
+        return this.id;
     }
 
     public void listen(PapotageEvent e){

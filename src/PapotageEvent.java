@@ -3,8 +3,8 @@ import java.util.EventObject;
 
 public class PapotageEvent extends EventObject{
     
-    String sujet;
-    String corps;
+    private String sujet;
+    private String corps;
 
     public PapotageEvent(Object source, String sujet, String corps){
         super(source);

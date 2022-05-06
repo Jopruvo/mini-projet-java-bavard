@@ -1,7 +1,7 @@
 public class Bavard implements PapotageListener{
     
-    String pseudonyme = "Unknown Lacrimatica";
-    Concierge concierge;
+    private String pseudonyme = "Unknown Lacrimatica";
+    private Concierge concierge;
 
     public void listen(PapotageEvent e){
 
@@ -14,6 +14,10 @@ public class Bavard implements PapotageListener{
 
     public String getBavard(){
         return this.pseudonyme;
+    }
+
+    public Concierge getConcierge(){
+        return this.concierge;
     }
 
     public void setConcierge(Concierge c){
