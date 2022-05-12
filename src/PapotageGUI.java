@@ -13,7 +13,7 @@ public class PapotageGUI extends JFrame implements ActionListener{
     private JButton userPanel;
 	
 	public PapotageGUI() {
-        this.mainText = new JTextField("Bienvenue Administrateur0690 !");
+        this.mainText = new JTextField("Bienvenue Administrateur69 !");
 		this.text = new JTextField("Enter a name");
 		this.text2 = new JTextField();
         this.mainText.setEditable(false);
