@@ -43,23 +43,12 @@ public class PapotageGUI extends JFrame implements ActionListener{
 		this.setVisible(true);
 	}
 
-	public void actionPerformed(ActionEvent e, int id, Concierge admin, Bavard nom) {
+	public void actionPerformed(ActionEvent e) {
 		String name = this.text.getText();
 		String result = "";
-        admin = new Concierge(id);
-        nom = new Bavard(name, admin);
 		if (e.getSource() == this.button) {
 			result = name + " a été ajouté comme nouveau Bavard";
-            admin.createBavard(nom);
 		}
 		this.text2.setText(result);
-
 	}
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        
-    }
-
 }
