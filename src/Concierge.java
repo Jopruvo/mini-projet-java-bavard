@@ -19,9 +19,8 @@ public class Concierge implements PapotageListener{
 
     }
 
-    public void createBavard(Bavard b){
+    public void addBavard(Bavard b){
         listBavardsConnected.add(b);
-        System.out.println(b.getBavard() + " ajouté à la liste des bavards connectés");
     }
 
     public void interet(Bavard b, boolean bool){
@@ -52,5 +51,21 @@ public class Concierge implements PapotageListener{
         for(PapotageListener l : this.listBavardsConnected){
             l.listen(e);
         }
+    }
+
+    public boolean verifyNameIntegrity(String name){
+        for(int i = 0; i < listBavardsConnected.size(); i++){
+            if(listBavardsConnected.get(i).getPseudo() == name){
+                return false;
+            }
+        }
+
+        for(int i = 0; i < listBavardsDisconnected.size(); i++){
+            if(listBavardsDisconnected.get(i).getPseudo() == name){
+                return false;
+            }
+        }
+        
+        return true;
     }
 }

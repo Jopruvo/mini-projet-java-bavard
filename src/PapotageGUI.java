@@ -11,6 +11,7 @@ public class PapotageGUI extends JFrame implements ActionListener{
 	private JButton button;
     private JButton adminPanel;
     private JButton userPanel;
+    private Concierge admin = new Concierge(69);
 	
 	public PapotageGUI() {
         this.mainText = new JTextField("Bienvenue Administrateur69 !");
@@ -46,12 +47,11 @@ public class PapotageGUI extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String name = this.text.getText();
         Bavard bavard;
-        Concierge admin = new Concierge(69);
 		String result = "";
-        if (e.getSource() == this.button) {
+        if (e.getSource() == this.button && admin.verifyNameIntegrity(name)) {
             result = name + " a été ajouté comme nouveau Bavard";
             bavard = new Bavard(name, admin);
-            admin.createBavard(bavard);
+            admin.addBavard(bavard);
         }
         this.text2.setText(result);
 	}
