@@ -28,9 +28,9 @@ public class PapotageGUI extends JFrame implements ActionListener{
 
 		this.button.setBounds(30,180,300,40);
 		this.button.addActionListener(this);
-        this.adminPanel.setBounds(40, 10, 40, 40);
+        this.adminPanel.setBounds(40, 10, 60, 40);
         this.adminPanel.addActionListener(this);
-        this.userPanel.setBounds(280, 10, 40, 40);
+        this.userPanel.setBounds(260, 10, 60, 40);
         this.userPanel.addActionListener(this);
         this.pan.add(this.mainText, BorderLayout.NORTH);
 		this.pan.add(this.text, BorderLayout.NORTH);
@@ -45,10 +45,14 @@ public class PapotageGUI extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		String name = this.text.getText();
+        Bavard bavard;
+        Concierge admin = new Concierge(69);
 		String result = "";
-		if (e.getSource() == this.button) {
-			result = name + " a été ajouté comme nouveau Bavard";
-		}
-		this.text2.setText(result);
+        if (e.getSource() == this.button) {
+            result = name + " a été ajouté comme nouveau Bavard";
+            bavard = new Bavard(name, admin);
+            admin.createBavard(bavard);
+        }
+        this.text2.setText(result);
 	}
 }

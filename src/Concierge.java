@@ -21,6 +21,7 @@ public class Concierge implements PapotageListener{
 
     public void createBavard(Bavard b){
         listBavardsConnected.add(b);
+        System.out.println(b.getBavard() + " ajouté à la liste des bavards connectés");
     }
 
     public void interet(Bavard b, boolean bool){
