@@ -7,10 +7,12 @@ public class Concierge implements PapotageListener{
     private Compte compte;
     private List<Bavard> listBavardsConnected = new ArrayList<>();
     private List<Bavard> listBavardsDisconnected = new ArrayList<>();
+    private String pseudo;
 
-    public Concierge(int id, Compte compte){
+    public Concierge(int id, Compte compte, String pseudo){
         this.id = id;
         this.compte = compte;
+        this.pseudo = pseudo;
     }
 
     public int getID(){
@@ -23,10 +25,7 @@ public class Concierge implements PapotageListener{
 
     public void addBavard(Bavard b){
         listBavardsConnected.add(b);
-<<<<<<< HEAD
-=======
         System.out.println(b.getPseudo() + " ajouté à la liste des bavards connectés");
->>>>>>> a9885e2 (Changement GUI avec vérification compte)
     }
 
     public void interet(Bavard b, boolean bool){
@@ -59,10 +58,6 @@ public class Concierge implements PapotageListener{
         }
     }
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> a9885e2 (Changement GUI avec vérification compte)
     public boolean verifyNameIntegrity(String name){
         for(int i = 0; i < listBavardsConnected.size(); i++){
             if(listBavardsConnected.get(i).getPseudo() == name){
@@ -77,5 +72,11 @@ public class Concierge implements PapotageListener{
         }
         
         return true;
+    }
+
+    public void setCompte(Compte c){
+        if (this.pseudo == c.getPseudo() && c.getType() == "User"){
+            this.compte = c;
+        }
     }
 }

@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.Container;
 import java.awt.BorderLayout;
 import java.awt.event.*;
-import java.util.List;
-import java.util.ArrayList;
 
 public class PapotageGUILogUser extends JFrame implements ActionListener{
     
@@ -13,8 +11,6 @@ public class PapotageGUILogUser extends JFrame implements ActionListener{
     private JTextField login3;
     private JButton buttonUser;
     private Container pan = getContentPane();
-    PapotageGUINewUser user;
-    private List<Compte> listCompte = user.getComptes();
     
     public PapotageGUILogUser(){
         this.mainText2 = new JTextField("Bienvenue Utilisateur inconnu !");
@@ -47,17 +43,9 @@ public class PapotageGUILogUser extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String log = this.login.getText();
         String pw = this.login2.getText();
-        String result = "";
-        for(int i = 0; i < listCompte.size(); i++){
-            listCompte.get(i);
-            if (log == listCompte.get(i).getPseudo() && pw == listCompte.get(i).getPassword()){
-                if (e.getSource() == this.buttonUser) {
-                    result = "Vous êtes connectés " + log;
-                    this.dispose();
-                    new PapotageGUIUser();
-                }
-            }
+        if (e.getSource() == this.buttonUser) {
+            this.dispose();
+            new PapotageGUIUser();
         }
-        this.login3.setText(result);
     }
 }

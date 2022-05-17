@@ -14,13 +14,10 @@ public class Bavard implements PapotageListener{
         this.compte = compte;
     }
 
-<<<<<<< HEAD
-=======
     public String getPseudo(){
         return this.pseudonyme;
     }
 
->>>>>>> a9885e2 (Changement GUI avec vérification compte)
     public Concierge getConcierge(){
         return this.concierge;
     }
@@ -29,7 +26,9 @@ public class Bavard implements PapotageListener{
         this.concierge = c;
     }
 
-    public String getPseudo(){
-        return this.pseudonyme;
+    public void setCompte(Compte c){
+        if (this.pseudonyme == c.getPseudo() && c.getType() == "User"){
+            this.compte = c;
+        }
     }
 }

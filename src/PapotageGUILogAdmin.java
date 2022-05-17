@@ -45,14 +45,11 @@ public class PapotageGUILogAdmin extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String log = this.login.getText();
         String pw = this.login2.getText();
-        String result = "";
         if (log == admin1.getPseudo() && pw == admin1.getPassword() || log == admin2.getPseudo() && pw == admin2.getPassword()){
             if (e.getSource() == this.buttonAdmin) {
-                result = "Vous êtes connectés en tant qu'Administrateur " + log;
                 this.dispose();
                 new PapotageGUIAdmin();
             }
         }
-        this.login3.setText(result);
     }
 }

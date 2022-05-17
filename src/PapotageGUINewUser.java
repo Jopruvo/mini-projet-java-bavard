@@ -15,6 +15,7 @@ public class PapotageGUINewUser extends JFrame implements ActionListener{
     private JButton buttonUser;
     private Container pan = getContentPane();
     private List<Compte> listCompteUser = new ArrayList<>();
+    private Concierge admin;
     
     public PapotageGUINewUser(){
         this.mainText2 = new JTextField("Bienvenue nouvel Utilisateur !");
@@ -28,7 +29,7 @@ public class PapotageGUINewUser extends JFrame implements ActionListener{
 		this.login.setBounds(40,90,280,30);
 		this.login2.setBounds(40,140,280,30);
 		this.login2.setEditable(true);
-        this.login2b.setBounds(100,190,280,30);
+        this.login2b.setBounds(40,190,280,30);
         this.login2b.setEditable(true);
 		this.login3.setBounds(100,290,280,30);
         this.login3.setEditable(false);
@@ -59,6 +60,7 @@ public class PapotageGUINewUser extends JFrame implements ActionListener{
             new PapotageGUIUser();
         }
         listCompteUser.add(new Compte(logMail, pw, log, "User"));
+        new Bavard(log, admin, new Compte(logMail, pw, log, "User"));
         this.login3.setText(result);
     }
 

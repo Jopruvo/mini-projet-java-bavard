@@ -16,7 +16,7 @@ public class PapotageGUI extends JFrame implements ActionListener{
         this.newUserButton = new JButton("Create User Account");
         this.adminButton.setBounds(40,10,120,40);
 		this.adminButton.addActionListener(this);
-        this.newUserButton.setBounds(100, 50, 250, 40);
+        this.newUserButton.setBounds(100, 80, 250, 40);
         this.newUserButton.addActionListener(this);
         this.userButton.setBounds(200,10,120,40);
 		this.userButton.addActionListener(this);
@@ -40,6 +40,9 @@ public class PapotageGUI extends JFrame implements ActionListener{
         }
         if (e.getSource() == this.userButton){
             new PapotageGUIUser();
+        }
+        if (e.getSource() == this.newUserButton){
+            new PapotageGUINewUser();
         }
 	}
 }
