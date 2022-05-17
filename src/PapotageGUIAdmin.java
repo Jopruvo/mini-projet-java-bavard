@@ -10,6 +10,10 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
     private JTextField mainText;
     private Container pan = getContentPane();
 	private JButton button;
+<<<<<<< HEAD
+=======
+	private JButton button1;
+>>>>>>> a9885e2 (Changement GUI avec vérification compte)
 	private Concierge admin;
 
     public PapotageGUIAdmin() {
@@ -33,7 +37,11 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
 		this.setSize(500,400);
 		this.setLayout(null);
 		this.setVisible(true);
+<<<<<<< HEAD
 
+=======
+		this.setLocationRelativeTo(null);
+>>>>>>> a9885e2 (Changement GUI avec vérification compte)
 	}
 
 	public void actionPerformed(ActionEvent e) {

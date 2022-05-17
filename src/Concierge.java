@@ -4,11 +4,13 @@ import java.util.ArrayList;
 public class Concierge implements PapotageListener{
     
     private int id = 0;
+    private Compte compte;
     private List<Bavard> listBavardsConnected = new ArrayList<>();
     private List<Bavard> listBavardsDisconnected = new ArrayList<>();
 
-    public Concierge(int id){
+    public Concierge(int id, Compte compte){
         this.id = id;
+        this.compte = compte;
     }
 
     public int getID(){
@@ -21,6 +23,10 @@ public class Concierge implements PapotageListener{
 
     public void addBavard(Bavard b){
         listBavardsConnected.add(b);
+<<<<<<< HEAD
+=======
+        System.out.println(b.getPseudo() + " ajouté à la liste des bavards connectés");
+>>>>>>> a9885e2 (Changement GUI avec vérification compte)
     }
 
     public void interet(Bavard b, boolean bool){
@@ -53,6 +59,10 @@ public class Concierge implements PapotageListener{
         }
     }
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> a9885e2 (Changement GUI avec vérification compte)
     public boolean verifyNameIntegrity(String name){
         for(int i = 0; i < listBavardsConnected.size(); i++){
             if(listBavardsConnected.get(i).getPseudo() == name){

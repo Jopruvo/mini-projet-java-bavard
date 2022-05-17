@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.Container;
 import java.awt.BorderLayout;
 import java.awt.event.*;
+import java.util.List;
+import java.util.ArrayList;
 
-public class PapotageGUIUser extends JFrame implements ActionListener{
+public class PapotageGUILogUser extends JFrame implements ActionListener{
     
     private JTextField mainText2;
     private JTextField login;
@@ -11,8 +13,10 @@ public class PapotageGUIUser extends JFrame implements ActionListener{
     private JTextField login3;
     private JButton buttonUser;
     private Container pan = getContentPane();
+    PapotageGUINewUser user;
+    private List<Compte> listCompte = user.getComptes();
     
-    public PapotageGUIUser(){
+    public PapotageGUILogUser(){
         this.mainText2 = new JTextField("Bienvenue Utilisateur inconnu !");
 		this.login = new JTextField("Enter a name");
 		this.login2 = new JTextField("Entrez un mot de passe");
@@ -29,23 +33,30 @@ public class PapotageGUIUser extends JFrame implements ActionListener{
         this.buttonUser = new JButton("Connexion");
         this.buttonUser.setBounds(60,180,150,40);
 		this.buttonUser.addActionListener(this);
-        this.pan.add(this.mainText2, BorderLayout.NORTH);
-		this.pan.add(this.login, BorderLayout.NORTH);
-		this.pan.add(this.login2, BorderLayout.NORTH);
+        this.pan.add(this.mainText2, BorderLayout.CENTER);
+		this.pan.add(this.login, BorderLayout.CENTER);
+		this.pan.add(this.login2, BorderLayout.CENTER);
         this.pan.add(this.login3, BorderLayout.CENTER);
         this.pan.add(this.buttonUser, BorderLayout.CENTER);
-		this.setSize(500,400);
+		this.setSize(600,400);
 		this.setLayout(null);
 		this.setVisible(true);
         this.setLocationRelativeTo(null);
-    }
 
     }
     public void actionPerformed(ActionEvent e) {
         String log = this.login.getText();
+        String pw = this.login2.getText();
         String result = "";
-        if (e.getSource() == this.buttonUser) {
-            result = "Vous êtes connectés " + log;
+        for(int i = 0; i < listCompte.size(); i++){
+            listCompte.get(i);
+            if (log == listCompte.get(i).getPseudo() && pw == listCompte.get(i).getPassword()){
+                if (e.getSource() == this.buttonUser) {
+                    result = "Vous êtes connectés " + log;
+                    this.dispose();
+                    new PapotageGUIUser();
+                }
+            }
         }
         this.login3.setText(result);
     }
