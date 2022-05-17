@@ -22,12 +22,8 @@ public class PapotageGUI extends JFrame implements ActionListener{
 		this.userButton.addActionListener(this);
         this.pan.add(this.adminButton, BorderLayout.CENTER);
         this.pan.add(this.userButton, BorderLayout.CENTER);
-<<<<<<< HEAD
-        this.setSize(500,400);
-=======
         this.pan.add(this.newUserButton, BorderLayout.CENTER);
         this.setSize(600,400);
->>>>>>> a9885e2 (Changement GUI avec vérification compte)
 		this.setLayout(null);
 		this.setVisible(true);
         this.setLocationRelativeTo(null);

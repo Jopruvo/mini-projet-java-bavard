@@ -10,11 +10,9 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
     private JTextField mainText;
     private Container pan = getContentPane();
 	private JButton button;
-<<<<<<< HEAD
-=======
 	private JButton button1;
->>>>>>> a9885e2 (Changement GUI avec vérification compte)
 	private Concierge admin;
+	private Compte compte;
 
     public PapotageGUIAdmin() {
         this.mainText = new JTextField("Bienvenue Administrateur69 !");
@@ -37,11 +35,7 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
 		this.setSize(500,400);
 		this.setLayout(null);
 		this.setVisible(true);
-<<<<<<< HEAD
-
-=======
 		this.setLocationRelativeTo(null);
->>>>>>> a9885e2 (Changement GUI avec vérification compte)
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -50,7 +44,7 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
 		String result = "";
         if (e.getSource() == this.button && admin.verifyNameIntegrity(name)) {
             result = name + " a été ajouté comme nouveau Bavard";
-            bavard = new Bavard(name, admin);
+            bavard = new Bavard(name, admin, compte);
             admin.addBavard(bavard);
         }
 		this.text2.setText(result);		

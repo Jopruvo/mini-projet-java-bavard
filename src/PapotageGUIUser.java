@@ -40,7 +40,7 @@ public class PapotageGUIUser extends JFrame implements ActionListener{
         this.setLocationRelativeTo(null);
     }
 
-    }
+
     public void actionPerformed(ActionEvent e) {
         String log = this.login.getText();
         String result = "";
