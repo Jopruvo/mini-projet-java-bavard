@@ -2,16 +2,16 @@ public class Bavard implements PapotageListener{
     
     private String pseudonyme = "Whatsup";
     private Concierge concierge;
-    private Compte compte;
+    //private Compte compte;
 
     public void listen(PapotageEvent e){
-
+        System.out.println(this.pseudonyme + " a reçu : " + e.getSujet() + " - " + e.getCorps());
     }
 
-    public Bavard(String pseudonyme, Concierge concierge, Compte compte){
-        this.pseudonyme = pseudonyme;
+    public Bavard(Compte compte, Concierge concierge){
+        this.pseudonyme = compte.getPseudo();
         this.concierge = concierge;
-        this.compte = compte;
+        //this.compte = compte;
     }
 
     public String getPseudo(){
@@ -28,7 +28,7 @@ public class Bavard implements PapotageListener{
 
     public void setCompte(Compte c){
         if (this.pseudonyme == c.getPseudo() && c.getType() == "User"){
-            this.compte = c;
+            //this.compte = c;
         }
     }
 }

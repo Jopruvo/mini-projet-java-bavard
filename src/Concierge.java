@@ -4,15 +4,25 @@ import java.util.ArrayList;
 public class Concierge implements PapotageListener{
     
     private int id = 0;
-    private Compte compte;
+    //private Compte compte;
     private List<Bavard> listBavardsConnected = new ArrayList<>();
     private List<Bavard> listBavardsDisconnected = new ArrayList<>();
     private String pseudo;
 
     public Concierge(int id, Compte compte, String pseudo){
         this.id = id;
-        this.compte = compte;
+        //this.compte = compte;
         this.pseudo = pseudo;
+    }
+
+    List<Bavard> getListConnected()
+    {
+        return this.listBavardsConnected;
+    }
+
+    List<Bavard> getListDisconnected()
+    {
+        return this.listBavardsDisconnected;
     }
 
     public int getID(){
@@ -20,12 +30,19 @@ public class Concierge implements PapotageListener{
     }
 
     public void listen(PapotageEvent e){
-
+        System.out.println(this.pseudo + " a reçu : " + e.getSujet() + " - " + e.getCorps());
     }
 
-    public void addBavard(Bavard b){
-        listBavardsConnected.add(b);
-        System.out.println(b.getPseudo() + " ajouté à la liste des bavards connectés");
+    public void createBavard(Compte c){
+        if(verifyNameIntegrity(c.getPseudo()))
+        {
+            this.listBavardsConnected.add(new Bavard(c, this));
+            System.out.println(c.getPseudo() + " a été crée + ajouté à la liste des bavards connectés !");
+        }
+        else
+        {
+            System.out.println(c.getPseudo() + " existe déjà !");
+        }
     }
 
     public void interet(Bavard b, boolean bool){
@@ -34,6 +51,7 @@ public class Concierge implements PapotageListener{
                 if(listBavardsDisconnected.get(i) == b){
                     listBavardsDisconnected.remove(i);
                     listBavardsConnected.add(b);
+                    System.out.println(b.getPseudo() + " manifeste son intérêt de papoter !");
                 }
             }
         }
@@ -43,6 +61,7 @@ public class Concierge implements PapotageListener{
                 if(listBavardsConnected.get(i) == b){
                     listBavardsConnected.remove(i);
                     listBavardsDisconnected.add(b);
+                    System.out.println(b.getPseudo() + " a été déconnecté !");
                 }
             }
         }
@@ -76,7 +95,7 @@ public class Concierge implements PapotageListener{
 
     public void setCompte(Compte c){
         if (this.pseudo == c.getPseudo() && c.getType() == "User"){
-            this.compte = c;
+            //this.compte = c;
         }
     }
 }

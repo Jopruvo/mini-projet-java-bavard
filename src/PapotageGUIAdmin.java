@@ -10,7 +10,6 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
     private JTextField mainText;
     private Container pan = getContentPane();
 	private JButton button;
-	private JButton button1;
 	private Concierge admin;
 	private Compte compte;
 
@@ -40,12 +39,10 @@ public class PapotageGUIAdmin  extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		String name = this.text.getText();
-        Bavard bavard;
 		String result = "";
         if (e.getSource() == this.button && admin.verifyNameIntegrity(name)) {
             result = name + " a été ajouté comme nouveau Bavard";
-            bavard = new Bavard(name, admin, compte);
-            admin.addBavard(bavard);
+            admin.createBavard(compte);
         }
 		this.text2.setText(result);		
 	}

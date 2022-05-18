@@ -41,8 +41,8 @@ public class PapotageGUILogUser extends JFrame implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent e) {
-        String log = this.login.getText();
-        String pw = this.login2.getText();
+        //String log = this.login.getText();
+        //String pw = this.login2.getText();
         if (e.getSource() == this.buttonUser) {
             this.dispose();
             new PapotageGUIUser();
